@@ -1,0 +1,130 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.7);  /* Oscurecer el header */
+  backdrop-filter: blur(8px);  /* Efecto de desenfoque */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  /* Sombra más fuerte */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6rem 2rem;
+  width: 100%;
+}
+
+.logo-container {
+  width: 55px;
+  flex: 0 0 55px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links a.active {
+  color: #008eff;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background-color: #008eff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.login-container {
+  display: flex;
+  justify-content: flex-end;
+  flex: 0 0 130px;
+}
+
+.login-button {
+  background-color: #008eff;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  min-width: 100px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  background-color: #0099ff;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.4rem 1rem;
+  }
+  
+  .nav-links {
+    position: relative;
+    transform: none;
+    left: auto;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: center;
+    margin: 0.5rem 0;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .login-container {
+    min-width: 90px;
+  }
+
+  .login-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .logo {
+    height: 50px;
+  }
+}

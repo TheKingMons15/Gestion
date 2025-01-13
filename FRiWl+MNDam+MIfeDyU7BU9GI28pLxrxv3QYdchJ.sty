@@ -1,0 +1,24 @@
+FRiWl+MNDam+MIfeDyU7BU9GI28pLxrxv3QYdchJGWI=
+
+
+[Interface]
+### PrivateKey_of_the_Client
+PrivateKey = yD5VYlZxqpTfBTllo1+6BuZyXlVIfcHLqsnrWclxW2I=
+### IP VPN for the Client
+Address = 10.20.10.12/24
+### DNS Server
+DNS = 8.8.8.8, 8.8.4.4
+
+[Peer]
+###Public of the WireGuard VPN Server
+PublicKey = 
+
+### IP and Port of the WireGuard VPN Server
+##### Syntax: IP_of_the_server:Port
+Endpoint = 190.155.246.101:51820   # IP pública y puerto del servidor
+### Allow all traffic
+AllowedIPs = 0.0.0.0/0
+
+
+
+wg set wg0 peer FRiWl+MNDam+MIfeDyU7BU9GI28pLxrxv3QYdchJGWI= allowed-ips 10.20.10.12

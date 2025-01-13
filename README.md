@@ -1,2 +1,0 @@
-# Gestion
-Gestión de Baloncesto 

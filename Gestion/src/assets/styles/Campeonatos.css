@@ -1,0 +1,129 @@
+.campeonatos {
+  padding: 12rem 4rem 6rem; /* Ajusta el padding superior para que esté debajo del header */
+  text-align: center;
+  min-height: 100vh;
+}
+
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.campeonatos-header {
+  margin-bottom: 3rem;
+}
+
+.campeonatos-header h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tarjetas alineadas horizontalmente */
+.campeonatos-row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+.campeonato-item {
+  flex: 0 0 320px;
+  height: 400px;
+  background: linear-gradient(145deg, #232323, #1a1a1a);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.campeonato-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 142, 255, 0.3);
+  border-color: rgba(0, 142, 255, 0.3);
+}
+
+.campeonato-item img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 1rem auto;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.campeonato-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Títulos */
+.campeonato-item h3 {
+  font-size: 1.7rem;
+  color: #008eff;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Descripción */
+.campeonato-item p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Lugar */
+.campeonato-item span {
+  font-size: 1rem;
+  color: #008eff;
+  background: rgba(0, 142, 255, 0.1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Scrollbar personalizado */
+.campeonatos-row::-webkit-scrollbar {
+  height: 12px;
+}
+
+.campeonatos-row::-webkit-scrollbar-thumb {
+  background: #008eff;
+  border-radius: 6px;
+}
+
+.campeonatos-row::-webkit-scrollbar-track {
+  background: #2c2c2c;
+  border-radius: 6px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .campeonatos-header h2 {
+      font-size: 2rem;
+  }
+
+  .campeonatos-row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+  }
+
+  .campeonato-item {
+      flex: 0 0 260px;
+      height: 360px;
+  }
+
+  .campeonato-item img {
+      width: 100px;
+      height: 100px;
+  }
+}

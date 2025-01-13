@@ -1,0 +1,220 @@
+.clasificacion {
+    padding: 24rem 4rem 6rem;  /* aumenta el padding superior */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    min-height: 100vh;
+    margin-top: 120px;  /* aumenta el margen superior para bajarla */
+    position: relative;
+    margin: 0 auto;  /* centra correctamente la sección */
+    max-width: 1440px;
+}
+
+
+/* Botón de cierre */
+.close-button-clasificacion {
+    position: absolute;
+    top: 25px;
+    right: -20px;
+    background: none;
+    border: none;
+    color: #008eff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.7rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-button-clasificacion:hover {
+    color: #00b7ff;
+    transform: rotate(90deg);
+}
+
+/* Botones de campeonatos */
+.campeonatos-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.campeonato-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: 2px solid #008eff;
+    background: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.campeonato-btn.activo {
+    background: #008eff;
+    color: white;
+    box-shadow: 0 0 12px #008eff;
+    border: 2px solid #0056b3;
+    transform: scale(1.05);
+}
+
+/* Filtro Masculino/Femenino/Mixto */
+.filtro {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.filtro button {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    background: none;
+    border: 2px solid #008eff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtro button.activo {
+    background: #008eff;
+    box-shadow: 0 0 10px #008eff;
+}
+
+/* Tabla de Equipos */
+.tabla-equipos {
+    margin: 2rem 0;
+    border-radius: 15px;
+    overflow-y: auto;
+    max-height: 350px;
+    background: linear-gradient(145deg, #232323, #1a1a1a);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tabla-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-weight: bold;
+    border-bottom: 2px solid #008eff;
+    text-align: center;
+}
+
+/* Ítem de equipo */
+.equipo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #008eff;
+}
+
+.equipo-item:hover {
+    background: rgba(0, 142, 255, 0.1);
+}
+
+/* Encabezado de encestadores y tripleros con foto en columna aparte */
+.jugador-header {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    font-size: 0.75rem;
+    padding: 0.6rem;
+    border-bottom: 1.5px solid #008eff;
+    font-weight: bold;
+    text-align: left;  /* Alineamos a la izquierda */
+    align-items: center;
+    padding-left: 1rem;  /* Añadimos un poco de margen a la izquierda */
+}
+/* Estilo de cada jugador con foto en columna extra */
+.jugador-item {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    background: rgba(0, 142, 255, 0.1);
+}
+
+/* Foto de jugador en la columna aparte */
+.jugador-foto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jugador-foto-mini {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #008eff;
+    transition: transform 0.3s ease;
+}
+
+.jugador-foto-mini:hover {
+    transform: scale(1.1);
+}
+
+/* Espaciado entre tablas de encestadores y tripleros */
+.mejores-jugadores {
+    display: flex;
+    justify-content: center;  /* Centrado */
+    gap: 3rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+/* Encestadores y Tripleros - Contenedor */
+.encestadores, .tripleros {
+    width: 48%;
+    background: rgba(0, 142, 255, 0.1);
+    border-radius: 15px;
+    padding: 1rem 1.5rem;  /* Se reduce el padding */
+    box-shadow: 0 4px 10px rgba(0, 142, 255, 0.1);
+}
+
+/* Título de Encestador y Triplero */
+.encestadores h3, .tripleros h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #008eff;
+    font-size: 1.2rem;  /* Tamaño más pequeño */
+    font-weight: 600;
+}
+
+/* Modal de foto ampliada */
+.foto-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.foto-grande {
+    max-width: 600px;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 142, 255, 0.7);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
