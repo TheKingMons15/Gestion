@@ -1,0 +1,32 @@
+# Utilizar una imagen basada en Debian o Ubuntu
+FROM node:20-buster AS build
+
+WORKDIR /app
+
+# Instalar dependencias de compilación para bcryptjs y paquetes nativos usando apt
+RUN apt-get update && \
+    apt-get install -y python3 g++ make && \
+    apt-get clean
+
+# Copiar archivos de dependencias primero para aprovechar la caché de Docker
+COPY package*.json ./
+
+# Instalar dependencias de producción (omite devDependencies)
+RUN npm install --omit=dev
+
+# Copiar el resto de los archivos del proyecto
+COPY . .
+
+# Variables de entorno para producción
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Exponer el puerto de la aplicación
+EXPOSE 3000
+
+# Crear usuario no root para mayor seguridad
+RUN adduser --disabled-password --gecos '' nodeuser && chown -R nodeuser /app
+USER nodeuser
+
+# Comando para iniciar la aplicación
+CMD ["node", "server.js"]
