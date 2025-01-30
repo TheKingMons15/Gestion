@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile.backend
+    container_name: backend
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: Gestion123
+      DB_NAME: gestion
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile.frontend
+    container_name: frontend
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Base de datos
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: Gestion123
+      MYSQL_DATABASE: gestion
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+# Red compartida entre servicios
+networks:
+  app-network:
+    driver: bridge
+
+# Volumen para la persistencia de datos
+volumes:
+  db-data:

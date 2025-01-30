@@ -15,8 +15,6 @@ yarn-error.log
 
 # Docker
 .dockerignore
-Dockerfile
-docker-compose.yml
 
 # Archivos de configuración del editor
 .vscode/
